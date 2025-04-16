@@ -1,168 +1,222 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat Ulang Tahun Erika!</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f0f8ff;
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      background-color: #ffebcd;
-    }
-    h1 {
-      color: #ff6347;
-      font-size: 50px;
-      text-align: center;
-      position: relative;
-      animation: typing 4s steps(40) 1s forwards, blink 0.7s step-end infinite alternate;
-      white-space: nowrap;
-      overflow: hidden;
-      margin-top: 30px;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    .balloon {
-      position: absolute;
-      width: 80px;
-      height: 120px;
-      background: #ff1493;
-      border-radius: 50%;
-      animation: balloon-animation 6s linear infinite;
-    }
-    .balloon1 { left: 10%; animation-delay: 0s; }
-    .balloon2 { left: 25%; animation-delay: 1s; }
-    .balloon3 { left: 40%; animation-delay: 2s; }
-    .balloon4 { left: 60%; animation-delay: 3s; }
-    .balloon5 { left: 80%; animation-delay: 4s; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun Erika!</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f0f8ff;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #ffebcd;
+      }
 
-    @keyframes balloon-animation {
-      0% { transform: translateY(100vh); }
-      100% { transform: translateY(-150vh); }
-    }
+      h1 {
+        color: #ff6347;
+        font-size: 40px;
+        text-align: center;
+        position: relative;
+        animation: typing 4s steps(40) 1s forwards,
+          blink 0.7s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
 
-    .confetti {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://cdn.pixabay.com/photo/2016/09/23/23/53/celebration-1681402_960_720.jpg') repeat;
-      pointer-events: none;
-      animation: confetti-fall 5s infinite;
-    }
-    @keyframes confetti-fall {
-      0% { opacity: 1; }
-      100% { opacity: 0; }
-    }
+      /* Story Container */
+      .story-container {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+        max-width: 600px;
+        line-height: 1.6;
+      }
 
-    /* Lilin */
-    .candle {
-      width: 20px;
-      height: 40px;
-      background: #ff4500;
-      position: absolute;
-      bottom: 50px;
-      animation: candleAnimation 4s forwards;
-      border-radius: 5px 5px 0 0;
-      left: 50%;
-      margin-left: -10px;
-    }
+      /* Gambar Orang */
+      .person-image {
+        width: 200px;
+        height: 200px;
+        background: url("https://via.placeholder.com/200") no-repeat center
+          center;
+        background-size: cover;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        animation: imageAnimation 2s ease-in-out infinite alternate;
+      }
 
-    .flame {
-      width: 10px;
-      height: 20px;
-      background: yellow;
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      margin-left: -5px;
-      border-radius: 50%;
-      animation: flameAnimation 1s infinite alternate;
-    }
+      @keyframes imageAnimation {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+      }
 
-    @keyframes candleAnimation {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
+      /* Buttons */
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
 
-    @keyframes flameAnimation {
-      0% { opacity: 1; transform: translateY(-5px); }
-      100% { opacity: 0.3; transform: translateY(0); }
-    }
+      button:hover {
+        background-color: #ff4500;
+      }
 
-    /* Tiup Lilin */
-    .blow {
-      animation: blowAnimation 2s ease-out forwards;
-    }
+      /* Confetti */
+      .confetti {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://cdn.pixabay.com/photo/2016/09/23/23/53/celebration-1681402_960_720.jpg")
+          repeat;
+        pointer-events: none;
+        animation: confetti-fall 5s infinite;
+      }
 
-    @keyframes blowAnimation {
-      0% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0); }
-    }
+      @keyframes confetti-fall {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-    .celebrate {
-      animation: celebrateAnimation 5s infinite ease-in-out;
-    }
+      /* Animasi Lilin */
+      .candle {
+        width: 20px;
+        height: 40px;
+        background: #ff4500;
+        position: absolute;
+        bottom: 50px;
+        animation: candleAnimation 4s forwards;
+        border-radius: 5px 5px 0 0;
+        left: 50%;
+        margin-left: -10px;
+      }
 
-    @keyframes celebrateAnimation {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+      .flame {
+        width: 10px;
+        height: 20px;
+        background: yellow;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -5px;
+        border-radius: 50%;
+        animation: flameAnimation 1s infinite alternate;
+      }
 
-  </style>
-</head>
-<body>
+      @keyframes candleAnimation {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-  <div class="confetti"></div>
+      @keyframes flameAnimation {
+        0% {
+          opacity: 1;
+          transform: translateY(-5px);
+        }
+        100% {
+          opacity: 0.3;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="confetti"></div>
 
-  <!-- Teks Ulang Tahun -->
-  <h1>Selamat Ulang Tahun Erika!</h1>
+    <!-- Gambar Orang (ganti link gambar sesuai dengan gambar Anda) -->
+    <div class="person-image"></div>
 
-  <!-- Balon -->
-  <div class="balloon balloon1"></div>
-  <div class="balloon balloon2"></div>
-  <div class="balloon balloon3"></div>
-  <div class="balloon balloon4"></div>
-  <div class="balloon balloon5"></div>
+    <!-- Story Container -->
+    <div class="story-container">
+      <p id="storyText">Ada seseorang yang spesial hari ini...</p>
+    </div>
 
-  <!-- Lilin dan Api -->
-  <div class="candle">
-    <div class="flame" id="flame"></div>
-  </div>
+    <!-- Tombol -->
+    <button id="nextButton">Klik untuk melanjutkan...</button>
 
-  <button id="blowButton" style="position: absolute; top: 70%; left: 50%; padding: 15px 30px; font-size: 18px; background-color: #ff6347; color: white; border: none; border-radius: 5px; cursor: pointer;">Tiup Lilin!</button>
+    <!-- Lilin -->
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+    </div>
 
-  <script>
-    const blowButton = document.getElementById('blowButton');
-    const flame = document.getElementById('flame');
+    <script>
+      const nextButton = document.getElementById("nextButton");
+      const storyText = document.getElementById("storyText");
+      let step = 0;
 
-    // Menambahkan animasi tiup lilin saat tombol diklik
-    blowButton.addEventListener('click', function() {
-      flame.classList.add('blow');
-      blowButton.classList.add('celebrate');
-      blowButton.textContent = 'Terima Kasih! 🎉';
+      // Menambahkan cerita yang akan muncul langkah demi langkah
+      const storySteps = [
+        "Ada seseorang yang spesial hari ini...",
+        "Selamat ulang tahun Erika! Hari ini adalah hari spesial untukmu!",
+        "Mari kita rayakan dengan kebahagiaan dan keceriaan...",
+        "Klik tombol untuk membuat permintaan spesial untuk Erika!",
+        "Tunggu, ada sesuatu yang istimewa...",
+        "Ayo, buat Erika bahagia dengan tiup lilin ini!",
+        "Selamat Ulang Tahun Erika!!! 🎉🎂🎈",
+      ];
 
-      // Menambah efek animasi perayaan setelah lilin tiup
-      setTimeout(function() {
-        alert('Selamat Ulang Tahun Erika! 🎂🎈');
-      }, 3000); // Menampilkan alert setelah 3 detik
-    });
-  </script>
-
-</body>
+      // Mengubah cerita saat tombol diklik
+      nextButton.addEventListener("click", function () {
+        step++;
+        if (step < storySteps.length) {
+          storyText.textContent = storySteps[step];
+        } else {
+          // Menambahkan animasi lilin dan perubahan tombol
+          nextButton.textContent = "Terima Kasih! 🎉";
+          nextButton.style.backgroundColor = "#32cd32"; // Ubah warna tombol
+          setTimeout(function () {
+            alert("Selamat Ulang Tahun Erika! 🎂🎉");
+          }, 2000); // Alert setelah beberapa detik
+        }
+      });
+    </script>
+  </body>
 </html>
