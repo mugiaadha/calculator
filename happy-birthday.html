@@ -15,6 +15,7 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      background-color: #ffebcd;
     }
     h1 {
       color: #ff6347;
@@ -24,6 +25,7 @@
       animation: typing 4s steps(40) 1s forwards, blink 0.7s step-end infinite alternate;
       white-space: nowrap;
       overflow: hidden;
+      margin-top: 30px;
     }
     @keyframes typing {
       from { width: 0; }
@@ -50,6 +52,7 @@
       0% { transform: translateY(100vh); }
       100% { transform: translateY(-150vh); }
     }
+
     .confetti {
       position: absolute;
       top: 0;
@@ -64,19 +67,102 @@
       0% { opacity: 1; }
       100% { opacity: 0; }
     }
+
+    /* Lilin */
+    .candle {
+      width: 20px;
+      height: 40px;
+      background: #ff4500;
+      position: absolute;
+      bottom: 50px;
+      animation: candleAnimation 4s forwards;
+      border-radius: 5px 5px 0 0;
+      left: 50%;
+      margin-left: -10px;
+    }
+
+    .flame {
+      width: 10px;
+      height: 20px;
+      background: yellow;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      margin-left: -5px;
+      border-radius: 50%;
+      animation: flameAnimation 1s infinite alternate;
+    }
+
+    @keyframes candleAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes flameAnimation {
+      0% { opacity: 1; transform: translateY(-5px); }
+      100% { opacity: 0.3; transform: translateY(0); }
+    }
+
+    /* Tiup Lilin */
+    .blow {
+      animation: blowAnimation 2s ease-out forwards;
+    }
+
+    @keyframes blowAnimation {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+
+    .celebrate {
+      animation: celebrateAnimation 5s infinite ease-in-out;
+    }
+
+    @keyframes celebrateAnimation {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
 
   <div class="confetti"></div>
 
+  <!-- Teks Ulang Tahun -->
   <h1>Selamat Ulang Tahun Erika!</h1>
 
+  <!-- Balon -->
   <div class="balloon balloon1"></div>
   <div class="balloon balloon2"></div>
   <div class="balloon balloon3"></div>
   <div class="balloon balloon4"></div>
   <div class="balloon balloon5"></div>
+
+  <!-- Lilin dan Api -->
+  <div class="candle">
+    <div class="flame" id="flame"></div>
+  </div>
+
+  <button id="blowButton" style="position: absolute; top: 70%; left: 50%; padding: 15px 30px; font-size: 18px; background-color: #ff6347; color: white; border: none; border-radius: 5px; cursor: pointer;">Tiup Lilin!</button>
+
+  <script>
+    const blowButton = document.getElementById('blowButton');
+    const flame = document.getElementById('flame');
+
+    // Menambahkan animasi tiup lilin saat tombol diklik
+    blowButton.addEventListener('click', function() {
+      flame.classList.add('blow');
+      blowButton.classList.add('celebrate');
+      blowButton.textContent = 'Terima Kasih! 🎉';
+
+      // Menambah efek animasi perayaan setelah lilin tiup
+      setTimeout(function() {
+        alert('Selamat Ulang Tahun Erika! 🎂🎈');
+      }, 3000); // Menampilkan alert setelah 3 detik
+    });
+  </script>
 
 </body>
 </html>
