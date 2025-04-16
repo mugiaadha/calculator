@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Erika!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f8ff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      color: #ff6347;
+      font-size: 50px;
+      text-align: center;
+      position: relative;
+      animation: typing 4s steps(40) 1s forwards, blink 0.7s step-end infinite alternate;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .balloon {
+      position: absolute;
+      width: 80px;
+      height: 120px;
+      background: #ff1493;
+      border-radius: 50%;
+      animation: balloon-animation 6s linear infinite;
+    }
+    .balloon1 { left: 10%; animation-delay: 0s; }
+    .balloon2 { left: 25%; animation-delay: 1s; }
+    .balloon3 { left: 40%; animation-delay: 2s; }
+    .balloon4 { left: 60%; animation-delay: 3s; }
+    .balloon5 { left: 80%; animation-delay: 4s; }
+
+    @keyframes balloon-animation {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-150vh); }
+    }
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://cdn.pixabay.com/photo/2016/09/23/23/53/celebration-1681402_960_720.jpg') repeat;
+      pointer-events: none;
+      animation: confetti-fall 5s infinite;
+    }
+    @keyframes confetti-fall {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confetti"></div>
+
+  <h1>Selamat Ulang Tahun Erika!</h1>
+
+  <div class="balloon balloon1"></div>
+  <div class="balloon balloon2"></div>
+  <div class="balloon balloon3"></div>
+  <div class="balloon balloon4"></div>
+  <div class="balloon balloon5"></div>
+
+</body>
+</html>
